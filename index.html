@@ -1,0 +1,272 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="robots" content="noindex,nofollow">
+<meta name="description" content="Save the date. Saturday 11 September 2027, Sydney.">
+<meta property="og:title" content="Jae &amp; Chris | Save the Date">
+<meta property="og:description" content="Saturday 11 September 2027, Sydney. Formal invitation to follow.">
+<meta property="og:type" content="website">
+<meta name="theme-color" content="#F1EBDD">
+<style>:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
+<title>Jae and Chris Save the Date</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Pinyon+Script&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,400&family=Noto+Serif+KR:wght@400&display=swap">
+<style>
+/* Layout: a five-beat scroll set like printed stationery. Names are written in on load inside a ruled frame, the date pins and assembles number by number, a day count ticks up on an olive band, then one button and a script sign-off. Palette from Jae's board: ivory, walnut, sage, olive, burgundy. Single committed look. */
+:root{
+  color-scheme:light;
+  --paper:#F1EBDD; --ink:#43302A; --soft:#7C6A5E; --accent:#6E2A33; --olive:#4C5739; --sage:#9AA57F; --mauve:#B58F84;
+  --script:"Pinyon Script","Snell Roundhand","Apple Chancery",cursive;
+  --serif:"Cormorant Garamond","Cormorant","Garamond","Times New Roman",serif;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--paper);color:var(--ink);font-family:var(--serif);font-size:21px;line-height:1.45;overflow-x:clip}
+p,h1,h2{margin:0;font-weight:400}
+.gutter{padding-inline:24px}
+.col{max-width:760px;margin-inline:auto}
+.label{font-size:14px;letter-spacing:.34em;text-transform:uppercase;color:var(--accent);font-weight:500}
+
+.pair{display:flex;flex-direction:column;align-items:center;gap:7px}
+.tr{display:flex;flex-direction:column;gap:2px;font-size:15.5px;line-height:1.35;color:var(--soft);letter-spacing:.02em;text-transform:none;font-weight:400;font-style:normal}
+.tr [lang="ko"]{font-family:"Noto Serif KR","Apple SD Gothic Neo","Malgun Gothic",serif;font-size:14px}
+.tr [lang="tl"]{font-style:italic}
+.count .tr{color:var(--paper);opacity:.85}
+
+.progress{position:fixed;left:0;right:0;top:env(safe-area-inset-top,0px);height:2px;background:var(--accent);transform-origin:0 50%;transform:scaleX(0);z-index:5}
+
+/* 1. hero */
+.hero{position:relative;min-height:90svh;display:flex;align-items:center;justify-content:center;padding-block:40px;text-align:center}
+.frame{position:absolute;inset:16px;border:1px solid var(--accent);pointer-events:none;animation:fade 1.4s ease both}
+.frame::after{content:"";position:absolute;inset:5px;border:1px solid var(--accent);opacity:.45}
+#motes{position:absolute;inset:0;width:100%;height:100%;pointer-events:none}
+.hero .col{position:relative;width:100%;display:flex;flex-direction:column;align-items:center;gap:18px}
+.hero .top{animation:fade 1s ease .2s both}
+.names{font-family:var(--script);color:var(--accent);font-size:clamp(68px,21vw,150px);line-height:1.15;padding:.1em .25em .2em;animation:write 2.2s cubic-bezier(.5,.1,.3,1) .5s both}
+.names .amp{font-family:var(--serif);font-style:italic;font-size:.5em;color:var(--olive);padding-inline:.15em;vertical-align:.18em}
+.hero .tease{font-size:15px;letter-spacing:.3em;text-transform:uppercase}
+.hero .mid{animation:fade 1s ease 2.2s both}
+.cue{display:flex;flex-direction:column;align-items:center;gap:10px;margin-top:22px;color:var(--soft);font-size:12px;letter-spacing:.3em;text-transform:uppercase;animation:fade 1s ease 2.8s both}
+.cue i{display:block;width:1px;height:44px;background:var(--accent);transform-origin:50% 0;animation:drop 2.2s ease-in-out 3s infinite}
+@keyframes write{from{clip-path:inset(0 100% 0 0);opacity:.2}to{clip-path:inset(0 0 0 0);opacity:1}}
+@keyframes fade{from{opacity:0}to{opacity:1}}
+@keyframes drop{0%{transform:scaleY(0)}50%{transform:scaleY(1)}100%{transform:scaleY(1);opacity:0}}
+
+/* 2. date */
+.date{padding-block:72px}
+.date .stage{display:flex;flex-direction:column;align-items:center;text-align:center;gap:24px}
+.nums{display:flex;flex-wrap:nowrap;justify-content:center;align-items:baseline;gap:0 .08em;font-weight:300;font-size:clamp(54px,19.5vw,190px);line-height:.9;font-variant-numeric:lining-nums;letter-spacing:-.01em}
+.nums .dot{color:var(--accent)}
+.rule{height:1px;width:min(100%,420px);background:var(--accent);transform-origin:50% 50%}
+.long{font-size:clamp(16px,4.2vw,20px);letter-spacing:.3em;text-transform:uppercase}
+
+.cue2{display:none}
+.cue2 i{display:block;width:1px;height:42px;background:var(--accent);transform-origin:50% 0;animation:drop 1.8s ease-in-out infinite}
+@keyframes out{to{opacity:0}}
+
+/* 3. count */
+.count{padding-block:96px;background:var(--olive);color:var(--paper);text-align:center}
+.count .col{display:flex;flex-direction:column;align-items:center;gap:10px}
+.count b{font-weight:300;font-size:clamp(84px,27vw,220px);line-height:.85;font-variant-numeric:tabular-nums lining-nums}
+.count .col>span{font-size:clamp(15px,4vw,19px);letter-spacing:.34em;text-transform:uppercase;color:var(--sage)}
+
+/* 4. venue */
+.venue{padding-block:100px;overflow:clip;text-align:center}
+.venue .big{font-family:var(--script);color:var(--olive);font-size:clamp(84px,24vw,210px);line-height:1.2;white-space:nowrap}
+.venue .col{display:flex;flex-direction:column;align-items:center;gap:10px;margin-top:8px}
+.venue .sub{color:var(--soft);font-style:italic}
+
+/* 5. rsvp */
+.rsvp{padding-block:40px 140px;text-align:center}
+.rsvp .col{display:flex;flex-direction:column;align-items:center;gap:22px;padding-top:56px}
+.rsvp h2{font-size:clamp(32px,8vw,52px);line-height:1.12;font-weight:300;text-wrap:balance;max-width:16ch}
+.btn{position:relative;display:inline-block;overflow:hidden;background:var(--accent);color:var(--paper);text-decoration:none;font-weight:500;letter-spacing:.24em;text-transform:uppercase;font-size:15px;padding:20px 28px 19px;isolation:isolate}
+.btn::before{content:"";position:absolute;inset:0;background:var(--olive);transform:translateY(101%);transition:transform .4s cubic-bezier(.2,.7,.2,1);z-index:-1}
+.btn:hover::before,.btn:focus-visible::before{transform:none}
+.btn:focus-visible{outline:2px solid var(--ink);outline-offset:3px}
+.fine{color:var(--soft);font-style:italic;max-width:34ch}
+.close{margin-top:56px}
+.signoff{font-family:var(--script);color:var(--olive);font-size:clamp(46px,13vw,92px);line-height:1.15;padding:.1em .2em .15em;text-wrap:balance}
+.cal{display:inline-block;padding:14px 10px;color:var(--accent);font-size:15px;letter-spacing:.24em;text-transform:uppercase;font-weight:500;text-underline-offset:6px;text-decoration-thickness:1px}
+.cal:hover{color:var(--olive)}
+.cal:focus-visible{outline:2px solid var(--ink);outline-offset:4px}
+
+/* scroll-linked motion, only where the browser supports it */
+@supports (animation-timeline: view()){
+  .progress{animation:grow linear both;animation-timeline:scroll(root)}
+  .date{height:240vh;padding-block:0;view-timeline-name:--date}
+  .date .stage{position:sticky;top:0;height:100vh;justify-content:center}
+  .nums>*, .rule, .grp{animation:linear both;animation-timeline:--date}
+  .n1{animation-name:numIn;animation-range:contain 0% contain 22%}
+  .d1{animation-name:fade;animation-range:contain 18% contain 26%}
+  .n2{animation-name:numIn;animation-range:contain 24% contain 46%}
+  .d2{animation-name:fade;animation-range:contain 42% contain 50%}
+  .n3{animation-name:numIn;animation-range:contain 48% contain 70%}
+  .rule{animation-name:grow;animation-range:contain 0% contain 72%}
+  .g1{animation-name:up;animation-range:contain 68% contain 82%}
+  .g2{animation-name:up;animation-range:contain 80% contain 94%}
+  .date .cue2{display:flex;position:absolute;left:0;right:0;bottom:calc(26px + env(safe-area-inset-bottom,0px));flex-direction:column;align-items:center;gap:10px;color:var(--soft);font-size:12px;letter-spacing:.3em;text-transform:uppercase;animation:out linear both;animation-timeline:--date;animation-range:contain 90% contain 100%}
+  .reveal{animation:up linear both;animation-timeline:view();animation-range:entry 5% entry 70%}
+  .signoff{animation:write linear both;animation-timeline:view();animation-range:entry 10% entry 100%}
+}
+@keyframes grow{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+@keyframes numIn{from{opacity:.08;transform:translateY(.3em) scale(.94);filter:blur(6px)}to{opacity:1;transform:none;filter:none}}
+@keyframes up{from{opacity:0;transform:translateY(36px)}to{opacity:1;transform:none}}
+@keyframes drift{from{transform:translateX(30%)}to{transform:translateX(-60%)}}
+
+/* fallback reveal for browsers without scroll timelines; class is added by script only */
+.io .reveal{opacity:0;transform:translateY(36px);transition:opacity .8s ease,transform .8s cubic-bezier(.2,.7,.2,1)}
+.io .reveal.in{opacity:1;transform:none}
+
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{animation:none!important;transition:none!important}
+  .date{height:auto!important;padding-block:72px!important}
+  .date .stage{position:static!important;height:auto!important}
+  .io .reveal{opacity:1;transform:none}
+  #motes{display:none}
+  .cue2{display:none!important}
+}
+</style>
+</head>
+<body>
+<div class="progress" aria-hidden="true"></div>
+
+<section class="hero gutter">
+  <canvas id="motes" aria-hidden="true"></canvas>
+  <div class="frame" aria-hidden="true"></div>
+  <div class="col">
+    <div class="pair top">
+      <p class="label">Save the date</p>
+      <p class="tr"><span lang="ko">이날을 비워 주시기 바랍니다</span><span lang="tl">Ireserba ang petsa</span></p>
+    </div>
+    <h1 class="names" aria-label="Jae and Chris">Jae <span class="amp">&amp;</span> Chris</h1>
+    <div class="pair mid">
+      <p class="tease">are getting married</p>
+      <p class="tr"><span lang="ko">결혼합니다</span><span lang="tl">ay ikakasal</span></p>
+    </div>
+    <p class="cue">Scroll<i></i></p>
+  </div>
+</section>
+
+<section class="date gutter">
+  <div class="stage col">
+    <div class="pair">
+      <p class="label">The date</p>
+      <p class="tr"><span lang="ko">날짜</span><span lang="tl">Ang petsa</span></p>
+    </div>
+    <p class="nums" aria-label="11 September 2027"><span class="n1">11</span><span class="dot d1">.</span><span class="n2">09</span><span class="dot d2">.</span><span class="n3">27</span></p>
+    <div class="rule"></div>
+    <div class="pair grp g1">
+      <p class="long">Saturday 11 September 2027</p>
+      <p class="tr"><span lang="ko">2027년 9월 11일 토요일</span><span lang="tl">Sabado, ika-11 ng Setyembre 2027</span></p>
+    </div>
+    <div class="pair grp g2">
+      <p class="long">Sydney, Australia</p>
+      <p class="tr"><span lang="ko">호주 시드니</span><span lang="tl">Sydney, Australia</span></p>
+    </div>
+    <p class="cue2" aria-hidden="true">Keep scrolling<i></i></p>
+  </div>
+</section>
+
+<section class="count gutter">
+  <div class="col reveal">
+    <b id="days">342</b>
+    <span id="days-label">days left</span>
+    <p class="tr" id="days-tr"><span lang="ko">일 남았습니다</span><span lang="tl">araw na lang</span></p>
+  </div>
+</section>
+
+<section class="rsvp gutter">
+  <div class="col reveal">
+    <div class="pair">
+      <h2>Tell us where to send the invitation</h2>
+      <p class="tr"><span lang="ko">청첩장 받으실 곳을 알려 주시기 바랍니다</span><span lang="tl">Sabihin sa amin kung saan ipapadala ang imbitasyon</span></p>
+    </div>
+    <div class="pair">
+      <a class="btn" id="rsvp" href="https://docs.google.com/forms/d/10WUTnImGLYtous3TXsmYDsE-fJ7zEgM7M-g1YmRWCi0/viewform" target="_blank" rel="noopener">Share your details</a>
+      <p class="tr"><span lang="ko">연락처 남기기</span><span lang="tl">Ibahagi ang iyong detalye</span></p>
+    </div>
+    <div class="pair">
+      <p class="fine">It takes a minute. We only need your contact details for now.</p>
+      <p class="tr"><span lang="ko">1분이면 됩니다. 지금은 연락처만 있으면 됩니다.</span><span lang="tl">Isang minuto lang. Contact details lang muna ang kailangan namin.</span></p>
+    </div>
+    <div class="pair">
+      <a class="cal" id="cal" href="https://calendar.google.com/calendar/render?action=TEMPLATE&amp;text=Jae+%26+Chris+Wedding&amp;dates=20270911/20270912&amp;location=Sydney,+Australia" target="_blank" rel="noopener">Add to Google Calendar</a>
+      <p class="tr"><span lang="ko">구글 캘린더에 추가</span><span lang="tl">Idagdag sa Google Calendar</span></p>
+    </div>
+    <div class="pair close">
+      <p class="signoff">Invitation to follow</p>
+      <p class="tr"><span lang="ko">정식 청첩장은 추후 보내드리겠습니다</span><span lang="tl">Susunod ang pormal na imbitasyon at mga detalye</span></p>
+    </div>
+  </div>
+</section>
+
+<script>
+(function(){
+  var still=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  // days to go, counted in Sydney dates
+  var days=342;
+  try{
+    var t=new Intl.DateTimeFormat('en-CA',{timeZone:'Australia/Sydney'}).format(new Date()).split('-').map(Number);
+    days=Math.round((Date.UTC(2027,8,11)-Date.UTC(t[0],t[1]-1,t[2]))/864e5);
+  }catch(e){}
+  var dEl=document.getElementById('days'),lEl=document.getElementById('days-label');
+  if(days>1){dEl.textContent=days;lEl.textContent='days left'}
+  else if(days===1){dEl.textContent='1';lEl.textContent='day left'}
+  else if(days===0){dEl.textContent='Today';lEl.textContent='See you there'}
+  else{dEl.textContent='Married';lEl.textContent='11 September 2027'}
+  if(days<=1){var dt=document.getElementById('days-tr');if(dt)dt.hidden=true}
+
+  var hasIO='IntersectionObserver' in window;
+  if(hasIO&&!still&&days>1){
+    var ran=false;
+    new IntersectionObserver(function(es,o){
+      if(!es[0].isIntersecting||ran)return;ran=true;o.disconnect();
+      var t0=performance.now(),dur=1400;
+      (function tick(now){
+        var p=Math.min(1,(now-t0)/dur),e=1-Math.pow(1-p,3);
+        dEl.textContent=Math.round(days*e);
+        if(p<1)requestAnimationFrame(tick);
+      })(t0);
+    },{threshold:.5}).observe(dEl);
+  }
+
+  // reveal fallback where scroll timelines are missing
+  var timelines=window.CSS&&CSS.supports&&CSS.supports('animation-timeline: view()');
+  if(!timelines&&hasIO&&!still){
+    document.documentElement.classList.add('io');
+    var ro=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');ro.unobserve(e.target)}})},{threshold:.15});
+    [].forEach.call(document.querySelectorAll('.reveal'),function(el){ro.observe(el)});
+  }
+
+  // drifting flecks in the hero
+  var c=document.getElementById('motes');
+  if(c&&c.getContext&&!still){
+    var x=c.getContext('2d'),W=0,H=0,P=[],dpr=Math.min(2,window.devicePixelRatio||1);
+    var cs=getComputedStyle(document.documentElement);
+    var cols=[cs.getPropertyValue('--sage').trim()||'#9AA57F',cs.getPropertyValue('--mauve').trim()||'#B58F84'];
+    function size(){W=c.clientWidth;H=c.clientHeight;c.width=W*dpr;c.height=H*dpr;x.setTransform(dpr,0,0,dpr,0,0)}
+    size();window.addEventListener('resize',size);
+    for(var k=0;k<34;k++)P.push({x:Math.random(),y:Math.random(),r:1+Math.random()*2.6,s:.00012+Math.random()*.0003,w:Math.random()*6.28,a:.2+Math.random()*.4,c:cols[k%2]});
+    var on=true;
+    if(hasIO)new IntersectionObserver(function(es){on=es[0].isIntersecting;if(on)requestAnimationFrame(draw)}).observe(c);
+    function draw(ts){
+      if(!on)return;
+      x.clearRect(0,0,W,H);
+      P.forEach(function(p){
+        p.y+=p.s*16;if(p.y>1.02){p.y=-.02;p.x=Math.random()}
+        var px=(p.x+Math.sin(ts/2400+p.w)*.014)*W;
+        x.globalAlpha=p.a;x.fillStyle=p.c;
+        x.beginPath();x.ellipse(px,p.y*H,p.r,p.r*1.7,p.w+ts/3000,0,6.283);x.fill();
+      });
+      requestAnimationFrame(draw);
+    }
+    requestAnimationFrame(draw);
+  }
+})();
+</script>
+</body>
+</html>
