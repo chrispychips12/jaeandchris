@@ -1,0 +1,16 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Jae and Chris//Save the Date//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:jae-chris-wedding-20270911@chrispychips12.github.io
+DTSTAMP:20261018T000000Z
+DTSTART;VALUE=DATE:20270911
+DTEND;VALUE=DATE:20270912
+SUMMARY:Jae & Chris Wedding
+LOCATION:Sydney\, Australia
+DESCRIPTION:Save the date. Formal invitation to follow.\nhttps://chrispychips12.github.io/jaeandchris/
+TRANSP:TRANSPARENT
+END:VEVENT
+END:VCALENDAR

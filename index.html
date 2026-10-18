@@ -8,112 +8,131 @@
 <meta property="og:title" content="Jae &amp; Chris | Save the Date">
 <meta property="og:description" content="Saturday 11 September 2027, Sydney. Formal invitation to follow.">
 <meta property="og:type" content="website">
+<meta property="og:url" content="https://chrispychips12.github.io/jaeandchris/">
+<meta property="og:image" content="https://chrispychips12.github.io/jaeandchris/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Jae and Chris, save the date, 11 September 2027, Sydney">
+<meta name="twitter:card" content="summary_large_image">
 <meta name="theme-color" content="#F1EBDD">
 <style>:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
 <title>Jae and Chris Save the Date</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Pinyon+Script&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,400&family=Noto+Serif+KR:wght@400&display=swap">
 <style>
-/* Layout: a five-beat scroll set like printed stationery. Names are written in on load inside a ruled frame, the date pins and assembles number by number, a day count ticks up on an olive band, then one button and a script sign-off. Palette from Jae's board: ivory, walnut, sage, olive, burgundy. Single committed look. */
+/* Layout: a four-beat scroll set like printed stationery. Names are written in on load inside a ruled frame, the date is readable on arrival and settles into place as you scroll, a day count ticks up on an olive band, then one trilingual button and a script sign-off. Palette from Jae's board: ivory, walnut, sage, olive, burgundy. Single committed look. */
 :root{
   color-scheme:light;
-  --paper:#F1EBDD; --ink:#43302A; --soft:#7C6A5E; --accent:#6E2A33; --olive:#4C5739; --sage:#9AA57F; --mauve:#B58F84;
+  --paper:#F1EBDD; --ink:#43302A; --soft:#6A584D; --accent:#6E2A33; --olive:#4C5739; --sage:#9AA57F; --sage-light:#CDD3B8; --mauve:#B58F84;
   --script:"Pinyon Script","Snell Roundhand","Apple Chancery",cursive;
+  --space-xs:8px; --space-s:16px; --space-m:clamp(24px,4vw,32px); --space-l:clamp(40px,7vw,64px); --space-xl:clamp(64px,12vw,112px);
   --serif:"Cormorant Garamond","Cormorant","Garamond","Times New Roman",serif;
 }
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
-body{background:var(--paper);color:var(--ink);font-family:var(--serif);font-size:21px;line-height:1.45;overflow-x:clip}
+body{background:var(--paper);color:var(--ink);font-family:var(--serif);font-size:1.3125rem;line-height:1.45;overflow-x:clip;font-variant-numeric:lining-nums}
 p,h1,h2{margin:0;font-weight:400}
 .gutter{padding-inline:24px}
 .col{max-width:760px;margin-inline:auto}
-.label{font-size:14px;letter-spacing:.34em;text-transform:uppercase;color:var(--accent);font-weight:500}
+.sr{position:absolute;width:1px;height:1px;margin:-1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap}
+.label{font-size:clamp(.875rem,.8rem + .3vw,1rem);letter-spacing:.34em;text-transform:uppercase;color:var(--accent);font-weight:500}
 
 .pair{display:flex;flex-direction:column;align-items:center;gap:7px}
-.tr{display:flex;flex-direction:column;gap:2px;font-size:15.5px;line-height:1.35;color:var(--soft);letter-spacing:.02em;text-transform:none;font-weight:400;font-style:normal}
-.tr [lang="ko"]{font-family:"Noto Serif KR","Apple SD Gothic Neo","Malgun Gothic",serif;font-size:14px}
+.tr{display:flex;flex-direction:column;gap:3px;font-size:1.0625rem;line-height:1.4;color:var(--soft);letter-spacing:.02em;text-transform:none;font-weight:400;font-style:normal}
+.tr [lang="ko"]{font-family:"Noto Serif KR","Apple SD Gothic Neo","Malgun Gothic",serif;font-size:1rem;line-height:1.55}
 .tr [lang="tl"]{font-style:italic}
-.count .tr{color:var(--paper);opacity:.85}
+/* Korean breaks between words, never inside one; all translation lines balance */
+[lang="ko"]{word-break:keep-all;overflow-wrap:break-word}
+.tr>span{text-wrap:balance}
+.count .tr{color:var(--paper);opacity:.88}
 
 .progress{position:fixed;left:0;right:0;top:env(safe-area-inset-top,0px);height:2px;background:var(--accent);transform-origin:0 50%;transform:scaleX(0);z-index:5}
 
 /* 1. hero */
-.hero{position:relative;min-height:90svh;display:flex;align-items:center;justify-content:center;padding-block:40px;text-align:center}
+.hero{position:relative;min-height:100svh;display:flex;align-items:center;justify-content:center;padding-block:var(--space-l);text-align:center}
 .frame{position:absolute;inset:16px;border:1px solid var(--accent);pointer-events:none;animation:fade 1.4s ease both}
 .frame::after{content:"";position:absolute;inset:5px;border:1px solid var(--accent);opacity:.45}
 #motes{position:absolute;inset:0;width:100%;height:100%;pointer-events:none}
-.hero .col{position:relative;width:100%;display:flex;flex-direction:column;align-items:center;gap:18px}
+.hero .col{position:relative;width:100%;display:flex;flex-direction:column;align-items:center;gap:var(--space-s)}
 .hero .top{animation:fade 1s ease .2s both}
 .names{font-family:var(--script);color:var(--accent);font-size:clamp(68px,21vw,150px);line-height:1.15;padding:.1em .25em .2em;animation:write 2.2s cubic-bezier(.5,.1,.3,1) .5s both}
-.names .amp{font-family:var(--serif);font-style:italic;font-size:.5em;color:var(--olive);padding-inline:.15em;vertical-align:.18em}
-.hero .tease{font-size:15px;letter-spacing:.3em;text-transform:uppercase}
+.names .amp{font-family:var(--serif);font-style:italic;font-size:.5em;color:var(--olive);padding-inline:.15em;vertical-align:.18em;cursor:pointer;-webkit-tap-highlight-color:transparent;display:inline-block;transition:opacity .25s ease,transform .45s cubic-bezier(.2,.7,.2,1)}
+.names .amp.swap{opacity:0;transform:translateY(.12em) rotate(-8deg)}
+.names .amp[lang="ko"]{font-family:"Noto Serif KR","Apple SD Gothic Neo",serif;font-style:normal;font-size:.36em}
+.hero .tease{font-size:clamp(.9375rem,.8rem + .5vw,1.25rem);letter-spacing:.3em;text-transform:uppercase}
+.hero .tr{font-size:clamp(1.0625rem,.95rem + .35vw,1.25rem)}
+/* on phones the names stack as a set piece instead of breaking after the ampersand */
+@media (max-width:640px){
+  .names{display:flex;flex-direction:column;align-items:center;font-size:clamp(76px,25vw,124px);line-height:1;padding:.12em .3em .22em}
+  .names .amp{font-size:.42em;line-height:1.1;vertical-align:0;padding:0}
+}
 .hero .mid{animation:fade 1s ease 2.2s both}
-.cue{display:flex;flex-direction:column;align-items:center;gap:10px;margin-top:22px;color:var(--soft);font-size:12px;letter-spacing:.3em;text-transform:uppercase;animation:fade 1s ease 2.8s both}
+.cue{display:flex;flex-direction:column;align-items:center;gap:10px;margin-top:var(--space-s);color:var(--soft);font-size:.8125rem;letter-spacing:.3em;text-transform:uppercase;animation:fade 1s ease 2.8s both}
 .cue i{display:block;width:1px;height:44px;background:var(--accent);transform-origin:50% 0;animation:drop 2.2s ease-in-out 3s infinite}
 @keyframes write{from{clip-path:inset(0 100% 0 0);opacity:.2}to{clip-path:inset(0 0 0 0);opacity:1}}
 @keyframes fade{from{opacity:0}to{opacity:1}}
 @keyframes drop{0%{transform:scaleY(0)}50%{transform:scaleY(1)}100%{transform:scaleY(1);opacity:0}}
 
 /* 2. date */
-.date{padding-block:72px}
-.date .stage{display:flex;flex-direction:column;align-items:center;text-align:center;gap:24px}
+.date{padding-block:var(--space-xl)}
+.date .stage{display:flex;flex-direction:column;align-items:center;text-align:center;gap:var(--space-m)}
 .nums{display:flex;flex-wrap:nowrap;justify-content:center;align-items:baseline;gap:0 .08em;font-weight:300;font-size:clamp(54px,19.5vw,190px);line-height:.9;font-variant-numeric:lining-nums;letter-spacing:-.01em}
 .nums .dot{color:var(--accent)}
 .rule{height:1px;width:min(100%,420px);background:var(--accent);transform-origin:50% 50%}
-.long{font-size:clamp(16px,4.2vw,20px);letter-spacing:.3em;text-transform:uppercase}
+.long{font-size:clamp(1rem,.85rem + .9vw,1.375rem);letter-spacing:.3em;text-transform:uppercase;text-wrap:balance}
 
-.cue2{display:none}
-.cue2 i{display:block;width:1px;height:42px;background:var(--accent);transform-origin:50% 0;animation:drop 1.8s ease-in-out infinite}
-@keyframes out{to{opacity:0}}
 
 /* 3. count */
-.count{padding-block:96px;background:var(--olive);color:var(--paper);text-align:center}
+.count{padding-block:var(--space-xl);background:var(--olive);color:var(--paper);text-align:center}
 .count .col{display:flex;flex-direction:column;align-items:center;gap:10px}
+.count .sats{display:flex;flex-direction:column;align-items:center;gap:6px;margin-top:var(--space-s);font-style:italic;font-size:clamp(1.125rem,1rem + .6vw,1.375rem);color:var(--paper)}
+.count .sats .tr{font-size:1rem}
 .count b{font-weight:300;font-size:clamp(84px,27vw,220px);line-height:.85;font-variant-numeric:tabular-nums lining-nums}
-.count .col>span{font-size:clamp(15px,4vw,19px);letter-spacing:.34em;text-transform:uppercase;color:var(--sage)}
-
-/* 4. venue */
-.venue{padding-block:100px;overflow:clip;text-align:center}
-.venue .big{font-family:var(--script);color:var(--olive);font-size:clamp(84px,24vw,210px);line-height:1.2;white-space:nowrap}
-.venue .col{display:flex;flex-direction:column;align-items:center;gap:10px;margin-top:8px}
-.venue .sub{color:var(--soft);font-style:italic}
+.count .col>span{font-size:clamp(15px,4vw,19px);letter-spacing:.34em;text-transform:uppercase;color:var(--sage-light)}
 
 /* 5. rsvp */
-.rsvp{padding-block:40px 140px;text-align:center}
-.rsvp .col{display:flex;flex-direction:column;align-items:center;gap:22px;padding-top:56px}
+.rsvp{padding-block:var(--space-l) calc(var(--space-xl) * 1.4);text-align:center}
+.rsvp .col{display:flex;flex-direction:column;align-items:center;padding-top:var(--space-l)}
+.rsvp .ask{display:flex;flex-direction:column;align-items:center;gap:var(--space-s);margin-top:var(--space-m)}
+.rsvp .cals{margin-top:var(--space-l)}
 .rsvp h2{font-size:clamp(32px,8vw,52px);line-height:1.12;font-weight:300;text-wrap:balance;max-width:16ch}
 .btn{position:relative;display:inline-block;overflow:hidden;background:var(--accent);color:var(--paper);text-decoration:none;font-weight:500;letter-spacing:.24em;text-transform:uppercase;font-size:15px;padding:20px 28px 19px;isolation:isolate}
 .btn::before{content:"";position:absolute;inset:0;background:var(--olive);transform:translateY(101%);transition:transform .4s cubic-bezier(.2,.7,.2,1);z-index:-1}
+.btn-en,.btn-tr{display:block}
+.btn-tr{display:flex;flex-direction:column;gap:2px;margin-top:8px;font-weight:400;letter-spacing:.02em;text-transform:none;font-size:1rem;line-height:1.35;opacity:.92}
+.btn-tr [lang="ko"]{font-family:"Noto Serif KR","Apple SD Gothic Neo","Malgun Gothic",serif;font-size:.9375rem}
+.btn{transition:transform .15s ease}
+.btn:active{transform:scale(.98)}
 .btn:hover::before,.btn:focus-visible::before{transform:none}
 .btn:focus-visible{outline:2px solid var(--ink);outline-offset:3px}
 .fine{color:var(--soft);font-style:italic;max-width:34ch}
-.close{margin-top:56px}
+.close{margin-top:var(--space-xl)}
+.flourish{display:block;width:min(220px,60%);height:auto;margin:-.2em auto 0;overflow:visible}
+.flourish path{fill:none;stroke:var(--olive);stroke-width:1.4;stroke-linecap:round;stroke-dasharray:1;stroke-dashoffset:0}
 .signoff{font-family:var(--script);color:var(--olive);font-size:clamp(46px,13vw,92px);line-height:1.15;padding:.1em .2em .15em;text-wrap:balance}
-.cal{display:inline-block;padding:14px 10px;color:var(--accent);font-size:15px;letter-spacing:.24em;text-transform:uppercase;font-weight:500;text-underline-offset:6px;text-decoration-thickness:1px}
+.cal-links{display:flex;flex-wrap:wrap;justify-content:center;gap:4px 18px;margin-top:4px}
+.cal{display:inline-block;min-height:48px;padding:14px 10px;text-decoration:underline;color:var(--accent);font-size:15px;letter-spacing:.24em;text-transform:uppercase;font-weight:500;text-underline-offset:6px;text-decoration-thickness:1px}
 .cal:hover{color:var(--olive)}
 .cal:focus-visible{outline:2px solid var(--ink);outline-offset:4px}
 
 /* scroll-linked motion, only where the browser supports it */
 @supports (animation-timeline: view()){
   .progress{animation:grow linear both;animation-timeline:scroll(root)}
-  .date{height:240vh;padding-block:0;view-timeline-name:--date}
-  .date .stage{position:sticky;top:0;height:100vh;justify-content:center}
-  .nums>*, .rule, .grp{animation:linear both;animation-timeline:--date}
-  .n1{animation-name:numIn;animation-range:contain 0% contain 22%}
-  .d1{animation-name:fade;animation-range:contain 18% contain 26%}
-  .n2{animation-name:numIn;animation-range:contain 24% contain 46%}
-  .d2{animation-name:fade;animation-range:contain 42% contain 50%}
-  .n3{animation-name:numIn;animation-range:contain 48% contain 70%}
-  .rule{animation-name:grow;animation-range:contain 0% contain 72%}
-  .g1{animation-name:up;animation-range:contain 68% contain 82%}
-  .g2{animation-name:up;animation-range:contain 80% contain 94%}
-  .date .cue2{display:flex;position:absolute;left:0;right:0;bottom:calc(26px + env(safe-area-inset-bottom,0px));flex-direction:column;align-items:center;gap:10px;color:var(--soft);font-size:12px;letter-spacing:.3em;text-transform:uppercase;animation:out linear both;animation-timeline:--date;animation-range:contain 90% contain 100%}
+  .date{height:170vh;padding-block:0;view-timeline-name:--date}
+  .date .stage{position:sticky;top:0;height:100svh;justify-content:center}
+  /* every figure is fully legible from the first frame; scrolling only settles them into line */
+  .n1,.n2,.n3,.rule{animation:linear both;animation-timeline:--date}
+  .n1{animation-name:settle;--from:-.18em;animation-range:contain 0% contain 45%}
+  .n2{animation-name:settle;--from:.22em;animation-range:contain 8% contain 55%}
+  .n3{animation-name:settle;--from:-.12em;animation-range:contain 16% contain 65%}
+  .rule{animation-name:grow;animation-range:contain 0% contain 70%}
   .reveal{animation:up linear both;animation-timeline:view();animation-range:entry 5% entry 70%}
   .signoff{animation:write linear both;animation-timeline:view();animation-range:entry 10% entry 100%}
+  .flourish path{animation:ink linear both;animation-timeline:view();animation-range:entry 40% cover 45%}
 }
+@keyframes ink{from{stroke-dashoffset:1}to{stroke-dashoffset:0}}
 @keyframes grow{from{transform:scaleX(0)}to{transform:scaleX(1)}}
-@keyframes numIn{from{opacity:.08;transform:translateY(.3em) scale(.94);filter:blur(6px)}to{opacity:1;transform:none;filter:none}}
+@keyframes settle{from{transform:translateY(var(--from))}to{transform:none}}
 @keyframes up{from{opacity:0;transform:translateY(36px)}to{opacity:1;transform:none}}
-@keyframes drift{from{transform:translateX(30%)}to{transform:translateX(-60%)}}
 
 /* fallback reveal for browsers without scroll timelines; class is added by script only */
 .io .reveal{opacity:0;transform:translateY(36px);transition:opacity .8s ease,transform .8s cubic-bezier(.2,.7,.2,1)}
@@ -122,17 +141,17 @@ p,h1,h2{margin:0;font-weight:400}
 @media (prefers-reduced-motion:reduce){
   html{scroll-behavior:auto}
   *,*::before,*::after{animation:none!important;transition:none!important}
-  .date{height:auto!important;padding-block:72px!important}
+  .date{height:auto!important;padding-block:var(--space-xl)!important}
   .date .stage{position:static!important;height:auto!important}
   .io .reveal{opacity:1;transform:none}
   #motes{display:none}
-  .cue2{display:none!important}
 }
 </style>
 </head>
 <body>
 <div class="progress" aria-hidden="true"></div>
 
+<main>
 <section class="hero gutter">
   <canvas id="motes" aria-hidden="true"></canvas>
   <div class="frame" aria-hidden="true"></div>
@@ -141,12 +160,12 @@ p,h1,h2{margin:0;font-weight:400}
       <p class="label">Save the date</p>
       <p class="tr"><span lang="ko">이날을 비워 주시기 바랍니다</span><span lang="tl">Ireserba ang petsa</span></p>
     </div>
-    <h1 class="names" aria-label="Jae and Chris">Jae <span class="amp">&amp;</span> Chris</h1>
+    <h1 class="names" aria-label="Jae and Chris"><span>Jae</span> <span class="amp">&amp;</span> <span>Chris</span></h1>
     <div class="pair mid">
       <p class="tease">are getting married</p>
       <p class="tr"><span lang="ko">결혼합니다</span><span lang="tl">ay ikakasal</span></p>
     </div>
-    <p class="cue">Scroll<i></i></p>
+    <p class="cue" aria-hidden="true">Scroll<i></i></p>
   </div>
 </section>
 
@@ -156,25 +175,28 @@ p,h1,h2{margin:0;font-weight:400}
       <p class="label">The date</p>
       <p class="tr"><span lang="ko">날짜</span><span lang="tl">Ang petsa</span></p>
     </div>
-    <p class="nums" aria-label="11 September 2027"><span class="n1">11</span><span class="dot d1">.</span><span class="n2">09</span><span class="dot d2">.</span><span class="n3">27</span></p>
+    <p class="nums"><span class="sr">11 September 2027</span><span aria-hidden="true" class="n1">11</span><span aria-hidden="true" class="dot d1">.</span><span aria-hidden="true" class="n2">09</span><span aria-hidden="true" class="dot d2">.</span><span aria-hidden="true" class="n3">27</span></p>
     <div class="rule"></div>
     <div class="pair grp g1">
-      <p class="long">Saturday 11 September 2027</p>
+      <p class="long">Saturday 11&nbsp;September&nbsp;2027</p>
       <p class="tr"><span lang="ko">2027년 9월 11일 토요일</span><span lang="tl">Sabado, ika-11 ng Setyembre 2027</span></p>
     </div>
     <div class="pair grp g2">
       <p class="long">Sydney, Australia</p>
       <p class="tr"><span lang="ko">호주 시드니</span><span lang="tl">Sydney, Australia</span></p>
     </div>
-    <p class="cue2" aria-hidden="true">Keep scrolling<i></i></p>
   </div>
 </section>
 
-<section class="count gutter">
+<section class="count gutter" id="count" hidden>
   <div class="col reveal">
-    <b id="days">342</b>
+    <b id="days"></b>
     <span id="days-label">days left</span>
     <p class="tr" id="days-tr"><span lang="ko">일 남았습니다</span><span lang="tl">araw na lang</span></p>
+    <div class="sats" id="sats" hidden>
+      <p>That’s <span id="sats-n"></span> Saturdays. The last one is ours.</p>
+      <p class="tr"><span lang="ko">토요일이 <span class="sats-n"></span>번 남았습니다. 마지막 토요일은 저희 날입니다.</span><span lang="tl"><span class="sats-n"></span> Sabado na lang. Ang huli ay para sa amin.</span></p>
+    </div>
   </div>
 </section>
 
@@ -184,24 +206,26 @@ p,h1,h2{margin:0;font-weight:400}
       <h2>Tell us where to send the invitation</h2>
       <p class="tr"><span lang="ko">청첩장 받으실 곳을 알려 주시기 바랍니다</span><span lang="tl">Sabihin sa amin kung saan ipapadala ang imbitasyon</span></p>
     </div>
-    <div class="pair">
-      <a class="btn" id="rsvp" href="https://docs.google.com/forms/d/10WUTnImGLYtous3TXsmYDsE-fJ7zEgM7M-g1YmRWCi0/viewform" target="_blank" rel="noopener">Share your details</a>
-      <p class="tr"><span lang="ko">연락처 남기기</span><span lang="tl">Ibahagi ang iyong detalye</span></p>
-    </div>
-    <div class="pair">
+    <div class="ask">
+      <a class="btn" id="rsvp" href="https://docs.google.com/forms/d/10WUTnImGLYtous3TXsmYDsE-fJ7zEgM7M-g1YmRWCi0/viewform"><span class="btn-en">Share your details</span><span class="btn-tr"><span lang="ko">연락처 남기기</span><span lang="tl">Ibahagi ang iyong detalye</span></span></a>
+      <div class="pair">
       <p class="fine">It takes a minute. We only need your contact details for now.</p>
       <p class="tr"><span lang="ko">1분이면 됩니다. 지금은 연락처만 있으면 됩니다.</span><span lang="tl">Isang minuto lang. Contact details lang muna ang kailangan namin.</span></p>
+      </div>
     </div>
-    <div class="pair">
-      <a class="cal" id="cal" href="https://calendar.google.com/calendar/render?action=TEMPLATE&amp;text=Jae+%26+Chris+Wedding&amp;dates=20270911/20270912&amp;location=Sydney,+Australia" target="_blank" rel="noopener">Add to Google Calendar</a>
-      <p class="tr"><span lang="ko">구글 캘린더에 추가</span><span lang="tl">Idagdag sa Google Calendar</span></p>
+    <div class="pair cals">
+      <p class="label">Add to your calendar</p>
+      <p class="tr"><span lang="ko">캘린더에 추가하기</span><span lang="tl">Idagdag sa iyong kalendaryo</span></p>
+      <p class="cal-links"><a class="cal" id="cal-ics" href="jaeandchris.ics" download>iPhone &amp; Outlook</a><a class="cal" id="cal" href="https://calendar.google.com/calendar/render?action=TEMPLATE&amp;text=Jae+%26+Chris+Wedding&amp;dates=20270911/20270912&amp;location=Sydney,+Australia" target="_blank" rel="noopener">Google</a></p>
     </div>
     <div class="pair close">
       <p class="signoff">Invitation to follow</p>
+      <svg class="flourish" viewBox="0 0 220 24" aria-hidden="true"><path pathLength="1" d="M4 16c30-10 58-12 86-4 18 5 30 9 48 5 14-3 22-11 34-11 14 0 22 8 44 6"/></svg>
       <p class="tr"><span lang="ko">정식 청첩장은 추후 보내드리겠습니다</span><span lang="tl">Susunod ang pormal na imbitasyon at mga detalye</span></p>
     </div>
   </div>
 </section>
+</main>
 
 <script>
 (function(){
@@ -219,6 +243,25 @@ p,h1,h2{margin:0;font-weight:400}
   else if(days===0){dEl.textContent='Today';lEl.textContent='See you there'}
   else{dEl.textContent='Married';lEl.textContent='11 September 2027'}
   if(days<=1){var dt=document.getElementById('days-tr');if(dt)dt.hidden=true}
+  document.getElementById('count').hidden=false;
+
+  // the wedding is on a Saturday: count the Saturdays left, the last one being theirs
+  if(days>=14&&t){
+    var dow=new Date(Date.UTC(t[0],t[1]-1,t[2])).getUTCDay(),sats=0;
+    for(var i=1;i<=days;i++)if((dow+i)%7===6)sats++;
+    document.getElementById('sats-n').textContent=sats;
+    [].forEach.call(document.querySelectorAll('.sats-n'),function(el){el.textContent=sats});
+    document.getElementById('sats').hidden=false;
+  }
+
+  // tap the ampersand: and, 와, at
+  var amp=document.querySelector('.names .amp'),ands=[['&','en'],['와','ko'],['at','tl']],ai=0;
+  if(amp)amp.addEventListener('click',function(){
+    ai=(ai+1)%ands.length;
+    function set(){amp.textContent=ands[ai][0];amp.lang=ands[ai][1];amp.classList.remove('swap')}
+    if(still){set();return}
+    amp.classList.add('swap');setTimeout(set,220);
+  });
 
   var hasIO='IntersectionObserver' in window;
   if(hasIO&&!still&&days>1){
@@ -250,7 +293,7 @@ p,h1,h2{margin:0;font-weight:400}
     var cols=[cs.getPropertyValue('--sage').trim()||'#9AA57F',cs.getPropertyValue('--mauve').trim()||'#B58F84'];
     function size(){W=c.clientWidth;H=c.clientHeight;c.width=W*dpr;c.height=H*dpr;x.setTransform(dpr,0,0,dpr,0,0)}
     size();window.addEventListener('resize',size);
-    for(var k=0;k<34;k++)P.push({x:Math.random(),y:Math.random(),r:1+Math.random()*2.6,s:.00012+Math.random()*.0003,w:Math.random()*6.28,a:.2+Math.random()*.4,c:cols[k%2]});
+    for(var k=0;k<22;k++)P.push({x:Math.random(),y:Math.random(),r:1+Math.random()*2.6,s:.00012+Math.random()*.0003,w:Math.random()*6.28,a:.2+Math.random()*.4,c:cols[k%2]});
     var on=true;
     if(hasIO)new IntersectionObserver(function(es){on=es[0].isIntersecting;if(on)requestAnimationFrame(draw)}).observe(c);
     function draw(ts){
