@@ -17,6 +17,7 @@
 <meta name="theme-color" content="#F1EBDD">
 <style>:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
 <title>Chris and Jae Save the Date</title>
+<script>document.documentElement.classList.add('anim')</script>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Pinyon+Script&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,400&family=Noto+Serif+KR:wght@400&display=swap">
 <style>
 /* Layout: a four-beat scroll set like printed stationery. Names are written in on load inside a ruled frame, the date is readable on arrival and settles into place as you scroll, a day count ticks up on an olive band, then one trilingual button and a script sign-off. Palette from Jae's board: ivory, walnut, sage, olive, burgundy. Single committed look. */
@@ -49,12 +50,15 @@ p,h1,h2{margin:0;font-weight:400}
 
 /* 1. hero */
 .hero{position:relative;min-height:100svh;display:flex;align-items:center;justify-content:center;padding-block:var(--space-l);text-align:center}
-.frame{position:absolute;inset:16px;border:1px solid var(--accent);pointer-events:none;animation:fade 1.4s ease both}
+.frame{position:absolute;inset:16px;border:1px solid var(--accent);pointer-events:none}
+/* entrance motion only once the page is marked .anim (before first paint); without script, everything shows at rest */
+.anim .frame{animation:fade 1.4s ease both}
 .frame::after{content:"";position:absolute;inset:5px;border:1px solid var(--accent);opacity:.45}
 #motes{position:absolute;inset:0;width:100%;height:100%;pointer-events:none}
 .hero .col{position:relative;width:100%;display:flex;flex-direction:column;align-items:center;gap:var(--space-s)}
-.hero .top{animation:fade 1s ease .2s both}
-.names{font-family:var(--script);color:var(--accent);font-size:clamp(68px,21vw,150px);line-height:1.15;padding:.1em .25em .2em;animation:write 2.2s cubic-bezier(.5,.1,.3,1) .5s both}
+.anim .hero .top{animation:fade 1s ease .2s both}
+.names{font-family:var(--script);color:var(--accent);font-size:clamp(68px,21vw,150px);line-height:1.15;padding:.1em .25em .2em}
+.anim .names{animation:write 2.2s cubic-bezier(.5,.1,.3,1) .5s both}
 .names .amp{font-family:var(--serif);font-style:italic;font-size:.5em;color:var(--olive);padding-inline:.15em;vertical-align:.18em;cursor:pointer;-webkit-tap-highlight-color:transparent;display:inline-block;transition:opacity .25s ease,transform .45s cubic-bezier(.2,.7,.2,1)}
 .names .amp.swap{opacity:0;transform:translateY(.12em) rotate(-8deg)}
 .names .amp[lang="ko"]{font-family:"Noto Serif KR","Apple SD Gothic Neo",serif;font-style:normal;font-size:.36em}
@@ -65,8 +69,9 @@ p,h1,h2{margin:0;font-weight:400}
   .names{display:flex;flex-direction:column;align-items:center;font-size:clamp(76px,25vw,124px);line-height:1;padding:.12em .3em .22em}
   .names .amp{font-size:.42em;line-height:1.1;vertical-align:0;padding:0}
 }
-.hero .mid{animation:fade 1s ease 2.2s both}
-.cue{display:flex;flex-direction:column;align-items:center;gap:10px;margin-top:var(--space-s);color:var(--soft);font-size:.8125rem;letter-spacing:.3em;text-transform:uppercase;animation:fade 1s ease 2.8s both}
+.anim .hero .mid{animation:fade 1s ease 2.2s both}
+.cue{display:flex;flex-direction:column;align-items:center;gap:10px;margin-top:var(--space-s);color:var(--soft);font-size:.8125rem;letter-spacing:.3em;text-transform:uppercase}
+.anim .cue{animation:fade 1s ease 2.8s both}
 .cue i{display:block;width:1px;height:44px;background:var(--accent);transform-origin:50% 0;animation:drop 2.2s ease-in-out 3s infinite}
 @keyframes write{from{clip-path:inset(0 100% 0 0);opacity:.2}to{clip-path:inset(0 0 0 0);opacity:1}}
 @keyframes fade{from{opacity:0}to{opacity:1}}
@@ -123,8 +128,8 @@ p,h1,h2{margin:0;font-weight:400}
   .n2{animation-name:settle;--from:.22em;animation-range:contain 8% contain 55%}
   .n3{animation-name:settle;--from:-.12em;animation-range:contain 16% contain 65%}
   .rule{animation-name:grow;animation-range:contain 0% contain 70%}
-  .reveal{animation:up linear both;animation-timeline:view();animation-range:entry 5% entry 70%}
-  .signoff{animation:write linear both;animation-timeline:view();animation-range:entry 10% entry 100%}
+  .anim .reveal{animation:up linear both;animation-timeline:view();animation-range:entry 5% entry 70%}
+  .anim .signoff{animation:write linear both;animation-timeline:view();animation-range:entry 10% entry 100%}
   .flourish path{animation:ink linear both;animation-timeline:view();animation-range:entry 40% cover 45%}
 }
 @keyframes ink{from{stroke-dashoffset:1}to{stroke-dashoffset:0}}
